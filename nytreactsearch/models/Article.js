@@ -21,13 +21,13 @@ const ArticleSchema = new Schema({
   },
   snippet: {
     type: String,
-    required: true
+    required: true,
     default: "No snippet available."
   }
 });
 
 // This creates our model from the above schema, using mongoose's model method
-const Article = mongoose.model("Article", nytreact);
+const Article = mongoose.model("Article", ArticleSchema);
 
 // Export the Article model
 module.exports = Article;
