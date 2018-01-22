@@ -1,6 +1,16 @@
 import React from "react";
-import Calculator from "./components/Calculator";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Search from "./pages/Search";
+import Header from "./components/Header";
 
-const App = () => <Calculator />;
+const App = () => 
+
+  <Router>
+    <div>
+      <Switch>
+        <Route exact path="/" component={Search} />
+      </Switch>
+    </div>
+  </Router>;
 
 export default App;
