@@ -1,15 +1,15 @@
 import React from "react";
 
-const Results = () =>
+const Saved = () =>
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h3 class="panel-title text-center"><strong><i class="fa fa-table"></i> Results</strong></h3>
+      <h3 class="panel-title text-center"><strong><i class="fa fa-table"></i> Saved Articles</strong></h3>
     </div>
     <div class="panel-body" id="well-section">
     </div>
   </div>
 
-export default Results;
+export default Saved;
 
 
 
