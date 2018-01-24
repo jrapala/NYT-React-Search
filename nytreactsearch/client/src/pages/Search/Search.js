@@ -1,13 +1,31 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
-import SearchForm from "../../components/SearchForm";
+// import SearchForm from "../../components/SearchForm";
 import Results from "../../components/Results";
 import Saved from "../../components/Saved";
+//import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 
 
 class Search extends Component {
+  state = {
+    saved: [],
+    topic: "",
+    startYear: "",
+    endYear: ""
+  };
+
+  findArticles = event => {
+  	event.preventDefault();
+
+  	// API.findArticles("Trump", 2017, 2018)
+  	// .then(res =>
+  	// 	console.log(res)
+  	// )
+  	// .catch(err => console.log(err));
+  }
+
 	render() {
 		return (
 		    <Container>
@@ -17,7 +35,40 @@ class Search extends Component {
             	</Jumbotron>
 		        <Row>
 		        	<Col size="sm-12">
-		          		<SearchForm />
+		          		<div className="panel panel-primary">
+          					<div className="panel-heading">
+            					<h3 className="panel-title text-center"><strong><i className="fa  fa-list-alt"></i>   Search Parameters</strong></h3>
+          					</div>
+          					<div className="panel-body">
+					            <form role="form">
+	              					<div className="form-group">
+	                					<label for="search">Topic:</label>
+	                					<input type="text" className="form-control" id="topic"></input>
+	              					</div>
+
+	              					{/*<div className="form-group">
+	                					<label for="pwd">Number of Records to Retrieve:</label>
+	                					<select className="form-control" id="num-records-select">
+											<option value="1">1</option>
+											<option value="5" selected>5</option>
+											<option value="10">10</option>
+										</select>
+	              					</div>*/}
+
+	              					<div className="form-group">
+	                					<label for="start-year">Start Year:</label>
+	                					<input type="text" className="form-control" id="start-year"></input>
+	              					</div>
+	              					<div className="form-group">
+	                					<label for="end-year">End Year:</label>
+	                					<input type="text" className="form-control" id="end-year"></input>
+	              					</div>
+	              					<button type="submit" onClick={this.findArticles} className="btn btn-primary" id="run-search"><i className="fa fa-search"></i> Search</button>
+	              					{/*<button type="button" className="btn btn-default" id="clear-all"><i className="fa fa-trash"></i> Clear Results</button>*/}
+
+            					</form>
+          					</div>
+        				</div>
 		          	</Col>
 		        </Row>
 		        <Row>
@@ -28,6 +79,22 @@ class Search extends Component {
 		        <Row>
 					<Col size="sm-12">
 		          		<Saved />
+		          		{/*{this.state.saved.length ? (
+              				<List>
+                				{this.state.saved.map(article => (
+                  					<ListItem key={article._id}>
+	                    				<Link to={"/books/" + article._id}>
+	                      					<strong>
+	                        					{article.title} by {article.author}
+	                      					</strong>
+	                    				</Link>
+                    					{/*<DeleteBtn onClick={() => this.deleteBook(book._id)} />*/}
+                  					{/*</ListItem>
+                				))}
+              				</List>
+            			) : (
+              				<h3>No Results to Display</h3>
+            			)}*/}
 		          	</Col>
 		        </Row>
 		    </Container>
