@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import Results from "../../components/Results";
 //import API from "../../utils/API";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 
 

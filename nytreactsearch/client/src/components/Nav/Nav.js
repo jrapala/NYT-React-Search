@@ -10,10 +10,14 @@ const Nav = () =>
           <span className="icon-bar" />
         </button>
       </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
-          <li><a href="/saved">Saved Articles</a></li>
+      <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul className="nav navbar-nav">
+          <li className={window.location.pathname === "/" ? "active" : ""}>
+            <a href="/">Home <span className="sr-only">(current)</span></a>
+          </li>
+          <li className={window.location.pathname === "/saved" ? "active" : ""}>
+            <a href="/saved">Saved Articles</a>
+          </li>
         </ul>
       </div>
   </nav>;
