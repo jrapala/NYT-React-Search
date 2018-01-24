@@ -1,6 +1,6 @@
 import React from "react";
 
-const Saved = () =>
+const SavedArticles = () =>
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title text-center"><strong><i class="fa fa-table"></i> Saved Articles</strong></h3>
@@ -9,7 +9,7 @@ const Saved = () =>
     </div>
   </div>
 
-export default Saved;
+export default SavedArticles;
 
 
 
