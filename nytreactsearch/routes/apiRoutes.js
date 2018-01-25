@@ -19,7 +19,7 @@ router.get("/articles", (req, res) => {
 	const START_YEAR = queryObject.begin_date;
 	const END_YEAR = queryObject.end_date;
 
-	const QUERY_URL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${AUTH_KEY}&q=${QUERY}&begin_date=${START_YEAR}0101&end_date=${END_YEAR}0101`
+	const QUERY_URL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${AUTH_KEY}&q=${QUERY}&sort=newest&begin_date=${START_YEAR}0101&end_date=${END_YEAR}0101`
 
 	// Fetch data from NYT API
 	axios
