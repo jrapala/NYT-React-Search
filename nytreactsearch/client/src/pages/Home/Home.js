@@ -3,6 +3,7 @@ import Jumbotron from "../../components/Jumbotron";
 import Results from "../../components/Results";
 import API from "../../utils/API";
 // import { Link } from "react-router-dom";
+import { ResultList, ResultListItem } from "../../components/ResultList";
 import { Col, Row, Container } from "../../components/Grid";
 
 
@@ -72,7 +73,24 @@ class Home extends Component {
 		        </Row>
 		        <Row>
 					<Col size="sm-12">
-		          		<Results />
+		          		<Results>
+		          		{!this.state.articles.length ? (
+                			<h1 className="text-center">No Articles to Display</h1>
+              			) : (
+                			<ResultList>
+                  				{this.state.articles.map(article => {
+                    				return (
+                      					<ResultListItem
+                        					key={article.headline.main}
+                        					title={article.headline.main}
+                        					href={article.web_url}
+                        					snippet={article.snippet}
+                      					/>
+                    				);
+                  				})}
+                			</ResultList>
+              			)}
+              			</Results>
 		          	</Col>
 		        </Row>
 		    </Container>
