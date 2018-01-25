@@ -1,4 +1,4 @@
 {
   "scripts": {
-  	"postinstall": "cd nytreactsearch"
+  	"postinstall": "cd nytreactsearch && npm install"
 }
