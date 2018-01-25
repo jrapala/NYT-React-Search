@@ -1,27 +1,28 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import Results from "../../components/Results";
-//import API from "../../utils/API";
+import API from "../../utils/API";
 // import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 
 
 class Home extends Component {
   state = {
-    saved: [],
-    topic: "",
-    startYear: "",
-    endYear: ""
+    articles: [],
+    topic: "cats",
+    startYear: "2017",
+    endYear: "2018"
   };
 
   findArticles = event => {
   	event.preventDefault();
 
-  	// API.findArticles("Trump", 2017, 2018)
-  	// .then(res =>
-  	// 	console.log(res)
-  	// )
-  	// .catch(err => console.log(err));
+  	API.findArticles(this.state.topic, this.state.startYear, this.state.endYear)
+		.then(res => {
+			this.setState({ articles: res.data.docs})
+			console.log(this.state.articles);
+		})
+	  	.catch(err => console.log(err));
   }
 
 	render() {
@@ -40,7 +41,7 @@ class Home extends Component {
           					<div className="panel-body">
 					            <form role="form">
 	              					<div className="form-group">
-	                					<label for="search">Topic:</label>
+	                					<label htmlFor="search">Topic:</label>
 	                					<input type="text" className="form-control" id="topic"></input>
 	              					</div>
 
@@ -54,11 +55,11 @@ class Home extends Component {
 	              					</div>*/}
 
 	              					<div className="form-group">
-	                					<label for="start-year">Start Year:</label>
+	                					<label htmlFor="start-year">Start Year:</label>
 	                					<input type="text" className="form-control" id="start-year"></input>
 	              					</div>
 	              					<div className="form-group">
-	                					<label for="end-year">End Year:</label>
+	                					<label htmlFor="end-year">End Year:</label>
 	                					<input type="text" className="form-control" id="end-year"></input>
 	              					</div>
 	              					<button type="submit" onClick={this.findArticles} className="btn btn-primary" id="run-search"><i className="fa fa-search"></i> Search</button>

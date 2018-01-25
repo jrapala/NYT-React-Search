@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import Saved from "./pages/Saved";
 import Nav from "./components/Nav";
@@ -10,7 +10,7 @@ const App = () =>
 	    <div>
 	   		<Nav />
 	      	<Switch>
-	        	<Route exact path="/" component={Home} />
+	        	<Route path="/" component={Home} />
 	        	<Route exact path="/saved" component={Saved} />
 	      	</Switch>
 	    </div>

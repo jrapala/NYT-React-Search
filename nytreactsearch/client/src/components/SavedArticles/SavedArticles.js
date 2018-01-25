@@ -1,11 +1,11 @@
 import React from "react";
 
 const SavedArticles = () =>
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title text-center"><strong><i class="fa fa-table"></i> Saved Articles</strong></h3>
+  <div className="panel panel-primary">
+    <div className="panel-heading">
+      <h3 className="panel-title text-center"><strong><i className="fa fa-table"></i> Saved Articles</strong></h3>
     </div>
-    <div class="panel-body" id="well-section">
+    <div className="panel-body" id="well-section">
     </div>
   </div>
 
