@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import Results from "../../components/Results";
+import SaveBtn from "../../components/SaveBtn";
 import { ResultList, ResultListItem } from "../../components/ResultList";
 import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/API";
@@ -31,7 +32,20 @@ class Home extends Component {
 			console.log(this.state.articles);
 		})
 	  	.catch(err => console.log(err));
-  }
+  };
+
+  saveArticle = article => {
+    console.log(article);
+    API.saveArticle({
+        title: article.headline.main,
+        url: article.web_url,
+        snippet: article.snippet     
+    })
+    .then(res => {
+      alert("article saved!");
+    })
+    .catch(err => console.log(err));
+  };
 
 	render() {
 		return (
@@ -84,7 +98,11 @@ class Home extends Component {
                         					)}
                         					href={article.web_url}
                         					snippet={article.snippet}
-                      					/>
+                                >
+                                <SaveBtn
+                                  onClick={() => this.saveArticle(article)}
+                                />
+                                </ResultListItem>
                     				);
                   				})}
                 			</ResultList>

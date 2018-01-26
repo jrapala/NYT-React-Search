@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export default {
+  
   findArticles: function(query, begin_date, end_date) {
 
     // Assign values to any empty parameters
@@ -26,7 +27,15 @@ export default {
     		}
     	}
     );
-  }
+  },
+
+  saveArticle: function(article) {
+    return axios.post("/api/saved", article);
+  },
+
+  getSavedArticles: function() {
+    return axios.get("/api/saved");
+  },
 };
 
 

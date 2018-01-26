@@ -1,5 +1,6 @@
 const axios = require("axios");
 const router = require("express").Router();
+const savedArticlesController = require("../controllers/savedArticlesController");
 
 // ROUTES
 // ==========================================================
@@ -31,6 +32,10 @@ router.get("/articles", (req, res) => {
 		.catch(err => res.status(422).json(err));
 
 });
+
+router.route("/saved")
+  .get(savedArticlesController.getSavedArticles)
+  .post(savedArticlesController.saveArticle);
 
 module.exports = router;
 

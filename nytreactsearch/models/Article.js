@@ -8,7 +8,7 @@ const ArticleSchema = new Schema({
   title: {
     type: String,
     required: true,
-    unique : true
+    default: "No title available."
   },
   date: {
     type: Date,
@@ -17,7 +17,8 @@ const ArticleSchema = new Schema({
   },
   url: {
     type: String,
-    required: true
+    required: true,
+    default: "https://www.nytimes.com/"
   },
   snippet: {
     type: String,
