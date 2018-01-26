@@ -61,7 +61,7 @@ class Home extends Component {
             					<h3 className="panel-title text-center"><strong><i className="fa fa-list-alt"></i>   Search Parameters</strong></h3>
           					</div>
           					<div className="panel-body">
-					            <form role="form">
+					            <form>
 	              					<div className="form-group">
 	                					<label htmlFor="topic">Topic:</label>
 	                					<input name="topic" value={this.state.topic} onChange={this.handleInputChange} placeholder="Search For a Topic" type="text" className="form-control" id="topic"></input>

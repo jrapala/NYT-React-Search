@@ -30,11 +30,11 @@ export default {
   },
 
   saveArticle: function(article) {
-    return axios.post("/api/saved", article);
+    return axios.post("/api/savedArticles", article);
   },
 
   getSavedArticles: function() {
-    return axios.get("/api/saved");
+    return axios.get("/api/savedArticles");
   },
 };
 

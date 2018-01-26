@@ -33,7 +33,7 @@ router.get("/articles", (req, res) => {
 
 });
 
-router.route("/saved")
+router.route("/savedArticles")
   .get(savedArticlesController.getSavedArticles)
   .post(savedArticlesController.saveArticle);
 

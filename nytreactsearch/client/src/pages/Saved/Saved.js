@@ -2,54 +2,57 @@ import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import Results from "../../components/Results";
 import SavedArticles from "../../components/SavedArticles";
-//import API from "../../utils/API";
+import { ResultList, ResultListItem } from "../../components/ResultList";
+import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 
 
 class Saved extends Component {
   state = {
-    saved: [],
-    topic: "",
-    startYear: "",
-    endYear: ""
+    articles: [],
+    title: "",
+    url: "",
+    snippet: ""
   };
 
-  findArticles = event => {
-  	event.preventDefault();
+  componentDidMount() {
+    this.getSavedArticles();
+  }
 
-  	// API.findArticles("Trump", 2017, 2018)
-  	// .then(res =>
-  	// 	console.log(res)
-  	// )
-  	// .catch(err => console.log(err));
+  getSavedArticles = () => {
+  	API.getSavedArticles()
+  	.then(res =>
+      this.setState({ articles: res.data, title: "", url: "", snippet: "" })
+  	)
+  	.catch(err => console.log(err));
   }
 
 	render() {
 		return (
 		    <Container>
             	<Jumbotron>
-					<h1 className="text-center">Saved Pages</h1>
+					<h1 className="text-center">Saved Articles</h1>
             	</Jumbotron>
 		        <Row>
 					<Col size="sm-12">
-		          		<SavedArticles />
-		          		{/*{this.state.saved.length ? (
-              				<List>
-                				{this.state.saved.map(article => (
-                  					<ListItem key={article._id}>
-	                    				<Link to={"/books/" + article._id}>
-	                      					<strong>
-	                        					{article.title} by {article.author}
-	                      					</strong>
-	                    				</Link>
-                    					{/*<DeleteBtn onClick={() => this.deleteBook(book._id)} />*/}
-                  					{/*</ListItem>
-                				))}
-              				</List>
-            			) : (
-              				<h3>No Results to Display</h3>
-            			)}*/}
+		          		<SavedArticles>
+                    {this.state.articles.length ? (
+                      <ResultList>
+                        {this.state.articles.map(article => (
+                            <ResultListItem
+                              key={article._id}
+                              title={article.title}
+                              href={article.url}
+                              snippet={article.snippet}
+                            >
+                            </ResultListItem>
+                        ))}
+                      </ResultList>
+                    ) : (
+                      <h3>No Saved Articles to Display</h3>
+                    )}
+                  </SavedArticles>
 		          	</Col>
 		        </Row>
 		    </Container>
