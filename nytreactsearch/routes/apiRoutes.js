@@ -37,6 +37,10 @@ router.route("/savedArticles")
   .get(savedArticlesController.getSavedArticles)
   .post(savedArticlesController.saveArticle);
 
+router.route("/savedArticles/:id")
+  .get(savedArticlesController.findArticleById)
+  .delete(savedArticlesController.deleteArticle);
+
 module.exports = router;
 
 

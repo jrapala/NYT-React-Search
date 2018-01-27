@@ -41,9 +41,6 @@ class Home extends Component {
         url: article.web_url,
         snippet: article.snippet     
     })
-    .then(res => {
-      alert("article saved!");
-    })
     .catch(err => console.log(err));
   };
 

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
-import Results from "../../components/Results";
 import SavedArticles from "../../components/SavedArticles";
+import DelBtn from "../../components/DelBtn";
 import { ResultList, ResultListItem } from "../../components/ResultList";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 
 
@@ -28,6 +27,12 @@ class Saved extends Component {
   	.catch(err => console.log(err));
   }
 
+  deleteArticle = article => {
+    API.deleteArticle(article._id)
+    .then(res => this.getSavedArticles())
+    .catch(err => console.log(err));
+  };
+
 	render() {
 		return (
 		    <Container>
@@ -46,6 +51,9 @@ class Saved extends Component {
                               href={article.url}
                               snippet={article.snippet}
                             >
+                                <DelBtn
+                                  onClick={() => this.deleteArticle(article)}
+                                />
                             </ResultListItem>
                         ))}
                       </ResultList>

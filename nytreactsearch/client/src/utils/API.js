@@ -36,7 +36,24 @@ export default {
   getSavedArticles: function() {
     return axios.get("/api/savedArticles");
   },
+
+  deleteArticle: function(articleId) {
+    return axios.delete("/api/savedArticles/" + articleId);
+  }
+  
 };
+
+
+
+  // findArticleById: function(req, res) {
+  //   db.Article
+  //     .findById(req.params.id)
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // }
+
+
+
 
 
 
