@@ -58,7 +58,7 @@ class Saved extends Component {
                         ))}
                       </ResultList>
                     ) : (
-                      <h3>No Saved Articles to Display</h3>
+                      <h3 className="text-center">No Saved Articles to Display</h3>
                     )}
                   </SavedArticles>
 		          	</Col>
