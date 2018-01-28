@@ -33,12 +33,12 @@ class Home extends Component {
   };
 
   saveArticle = article => {
-    console.log(article);
     API.saveArticle({
         title: article.headline.main,
         url: article.web_url,
         snippet: article.snippet     
     })
+    .then(alert("Article Saved!"))
     .catch(err => console.log(err));
   };
 
